@@ -3,12 +3,14 @@ export type artistType = {
     image: string;
     genre: string[];
     followers: number;
-    albums: string[];
     bio: string[];
     id: string;
+    albums: {
+    links: string[]; // ✅ links is inside albums
+  };
 
 }
 
 export type albumType = {
-    links: any[];
+    links: string[];
 };

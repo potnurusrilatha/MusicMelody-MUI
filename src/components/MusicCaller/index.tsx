@@ -85,9 +85,17 @@ const MusicCaller = () => {
             fullWidth
             sx={{ mb: 2 }}
           />
-          <Button variant="contained" onClick={fetchArtist} disabled={loading || !inputValue.trim()}>
-            Search
-          </Button>
+        <Button variant="contained" onClick={fetchArtist}
+            sx={{
+            backgroundColor: "#673ab7",
+            color: "#fff",
+            "&:hover": {
+              backgroundColor: "#512da8",
+          },
+        }}
+        >
+          Search
+        </Button>
 
           {loading && <CircularProgress sx={{ mt: 3 }} />}
           {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}

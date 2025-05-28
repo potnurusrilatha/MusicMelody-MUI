@@ -61,9 +61,9 @@ const MusicCaller = () => {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("artist");
-    if (saved) {
-      const parsed = JSON.parse(saved);
+    const savedArtist = localStorage.getItem("artist");
+    if (savedArtist) {
+      const parsed = JSON.parse(savedArtist);
       setArtist(parsed);
       fetchTracks(parsed.id);
     }
@@ -92,7 +92,7 @@ const MusicCaller = () => {
           {loading && <CircularProgress sx={{ mt: 3 }} />}
           {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
 
-          {artist && (
+          {artist && inputValue.trim() !== ''&&(
             <>
               <Artist {...artist} />
               {tracks.length > 0 && <MusicPlayer tracks={tracks} />}
